@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: false},
   modules: ['@nuxt/ui','nuxt-icon','@pinia/nuxt','@vueuse/nuxt'],
   runtimeConfig:{
-    dbUrl: process.env.DATABASE_URL,
-    dbName: process.env.DBNAME,
+    dbUri: process.env.DATABASE_URI,
+    dbName: process.env.MONGO_DB,
     dbUser: process.env.DBUSERNAME,
     dbPass: process.env.DBPASSWORD,
     dbAuthSource: process.env.DBAUTHSOURCE

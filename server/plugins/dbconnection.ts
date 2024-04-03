@@ -4,11 +4,11 @@ export default async()=>{
     try{
         const DB_OPTIONS = {
             dbName: config.dbName,
-            user: config.dbUser,
-            pass: config.dbPass,
-            authSource: config.dbAuthSource
+            // user: config.dbUser,
+            // pass: config.dbPass,
+            // authSource: config.dbAuthSource
         }
-        await mongoose.connect(config.dbUrl, DB_OPTIONS)
+        await mongoose.connect(config.dbUri, DB_OPTIONS)
         console.log("Connected to Database");
     }catch(err){
         console.log("Loi ket noi");
