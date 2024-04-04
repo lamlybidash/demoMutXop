@@ -87,6 +87,9 @@
                         <div class="w-[70%] " ref="dropZoneRef">
                             <UInput type="file" accept="image/*" multiple @change="onSelectFile"></UInput>
                         </div>
+                        <UButton @click="addimg()" class="bg-blue-400 hover:bg-blue-600">
+                                Add
+                            </UButton>
                     </div>
 
                     <div class="w-full flex">

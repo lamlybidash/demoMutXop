@@ -67,6 +67,36 @@
     const pageMax = ref(0);
     const typeSP = ref('');
 
+    
+    const loadF = async () =>{
+        try 
+        {
+            const {data:i4SP} = await useFetch('/api/sanpham/list');
+            items.value = i4SP.value;
+            if(i4SP.value)
+            {
+                items.value = i4SP.value;
+                console.log(items.value.length);
+                pageMax.value = parseInt(items.value.length / 6) + 1;
+                console.log(pageMax.value);
+                console.log(items.value);
+                if(items.value)
+                {
+                    await setlist(items);
+                }
+            }
+            else{
+                await setlist(items);
+                console.log('Không tìm thấy sản phẩm else');
+            }
+        } catch (error) {
+            console.log('Không tìm thấy sản phẩm catch');
+            console.log(error);
+        }
+    }
+    loadF();
+
+
     const dauF = async () => {
         page.value=1;
         await setlist(items);
@@ -133,34 +163,7 @@
     }
 
 
-    const loadF = async () =>{
-        try 
-        {
-            const {data:i4SP} = await useFetch('/api/sanpham/list');
-            items.value = i4SP.value;
-            if(i4SP.value)
-            {
-                items.value = i4SP.value;
-                console.log(items.value.length);
-                pageMax.value = parseInt(items.value.length / 6) + 1;
-                console.log(pageMax.value);
-                console.log(items.value);
-                if(items.value)
-                {
-                    await setlist(items);
-                }
-            }
-            else{
-                await setlist(items);
-                console.log('Không tìm thấy sản phẩm else');
-            }
-        } catch (error) {
-            console.log('Không tìm thấy sản phẩm catch');
-            console.log(error);
-        }
-    }
 
-    loadF();
     const baiviets = ref
     ([
         {
