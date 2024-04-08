@@ -87,7 +87,6 @@
                         <div class="w-[70%] " ref="dropZoneRef">
                             <UInput type="file" accept="image/*" multiple @change="onSelectFile"></UInput>
                         </div>
-                        <img :src="nguon" />
                         <UButton @click="addimg()" class="bg-blue-400 hover:bg-blue-600">
                                 Add
                             </UButton>
@@ -150,7 +149,6 @@
     const MoTaInp = ref('');
     const items = ref([]);
     const listimg = ref([]);
-    const nguon = ref('');
     //Script here
 
 

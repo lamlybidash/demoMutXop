@@ -1,7 +1,9 @@
+import { _height } from "#tailwind-config/theme";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false},
-  modules: ['@nuxt/ui','nuxt-icon','@pinia/nuxt','@vueuse/nuxt'],
+  modules: ['@nuxt/ui','nuxt-icon','@pinia/nuxt','@vueuse/nuxt','@nuxt/image',],
   runtimeConfig:{
     public:{
       dbUri: process.env.DATABASE_URI,

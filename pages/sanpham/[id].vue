@@ -8,7 +8,7 @@
                         <div @click="len()" class="cursor-pointer w-full h-[5%] opacity-[50%] hover:opacity-[70%] bg-white flex flex-col items-center justify-center absolute">
                             ^
                         </div>
-                        <img v-for="(anhNho,index) in listAnhNho" :key="index" @click="loadAnhChinh(index)" :src="anhNho" class="w-[100%] h-[100%] object-cover border-b-[1px]"/>
+                        <NuxtImg v-for="(anhNho,index) in listAnhNho" :key="index" @click="loadAnhChinh(index)" :src="anhNho" class="w-[100%] h-[100%] object-cover border-b-[1px]"></NuxtImg>
                         <div @click="xuong()" class="cursor-pointer w-full h-[5%] opacity-[50%] hover:opacity-[70%] bg-white flex flex-col items-center justify-center absolute bottom-0">
                             v
                         </div>
@@ -18,7 +18,7 @@
                         <div @click="preImg()" class=" cursor-pointer absolute opacity-[40%] hover:opacity-[70%] w-[10%] bg-white h-1/4 left-0 flex items-center justify-center font-extrabold text-[30px]">
                             <
                         </div>
-                        <img :src="anhChinh" class="w-[100%] h-[100%] object-cover"/>
+                        <NuxtImg :src="anhChinh" class="w-[100%] h-[100%] object-cover"></NuxtImg>
                         <div @click="nextImg()" class="cursor-pointer absolute opacity-[40%] hover:opacity-[70%] w-[10%] bg-white h-1/4 right-0 flex items-center justify-center font-extrabold text-[30px]">
                             >
                         </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center p-2 ">
-        <img @click="selected()" class="xl:w-[500px] h-[400px] object-cover cursor-pointer " :src="item.imgurl ? item.imgurl : null">
+        <NuxtImg @click="selected()" class="xl:w-[500px] h-[400px] object-cover cursor-pointer " :src="item.imgurl ? item.imgurl : null"></NuxtImg>
         <div class="text-xl cursor-pointer ">
             {{ item.ten }}
         </div>
