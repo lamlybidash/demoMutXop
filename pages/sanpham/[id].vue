@@ -112,6 +112,10 @@
 
     const len = () =>
     {
+        if(itemx.value.imgurl.length <= 5)
+        {
+            return;
+        }
         if(ind.value==0)
         {
             ind.value = itemx.value.imgurl.length - 1;
@@ -127,6 +131,10 @@
 
     const xuong = () =>
     {
+        if(itemx.value.imgurl.length <= 5)
+        {
+            return;
+        }
         if(ind.value==itemx.value.imgurl.length - 1)
         {
             ind.value = 0;

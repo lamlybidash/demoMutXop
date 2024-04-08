@@ -25,8 +25,6 @@
     
     const emit = defineEmits([]);
     function testF(){
-        console.log(props._id);
-        console.log(props.img);
         emit('update:selected', props._id);
     }
 

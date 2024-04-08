@@ -87,6 +87,7 @@
                         <div class="w-[70%] " ref="dropZoneRef">
                             <UInput type="file" accept="image/*" multiple @change="onSelectFile"></UInput>
                         </div>
+                        <img :src="nguon" />
                         <UButton @click="addimg()" class="bg-blue-400 hover:bg-blue-600">
                                 Add
                             </UButton>
@@ -149,12 +150,13 @@
     const MoTaInp = ref('');
     const items = ref([]);
     const listimg = ref([]);
+    const nguon = ref('');
     //Script here
 
 
     const fileInput = ref(null);
     let selectedFile = null;
-    const onSelectFile = (event) =>
+    const onSelectFile = async (event) =>
     {
         console.log(event.target.files);
         const input = event.target.files;
@@ -165,39 +167,37 @@
         listimg.value = list.value;
         for(let index = 0 ; index < fileInput.value.length; index++)
         {
-            // formData.append('file',fileInput.value[index]);
-            listimg.value.push('/imgs/'+ fileInput.value[index].name);
+            const base64 = await convertbase64(fileInput.value[index]);
+            listimg.value.push(base64);
+            // console.log(base64);
         }
-        console.log("listimg: ");
-        console.log(listimg.value);
+        // console.log("listimg: ");
+        // console.log(listimg.value);
+    }
+
+
+    const convertbase64 = (img) =>
+    {
+        return new Promise((resolve,reject)=>{
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(img);
+            fileReader.onload = () =>
+            {
+                resolve(fileReader.result);
+            };
+
+            fileReader.onerror = (error) =>
+            {
+                reject(error);
+            }
+        })
     }
 
     // Function Thêm ảnh
-    const addimg = async () =>
-    {
-        try {
-            const formData = new FormData();
-            for(const index in fileInput.value)
-            {
-                formData.append('file',fileInput.value[index]);
-            }
-            console.log(formData);
-
-            console.log('Chay API client');
-            await $fetch('/api/imgs/add',{
-                method:'POST',
-                body: formData,
-            });
-        } catch (error) {
-            console.log('Lỗi chạy API client');
-        }
-    }
 
     // Thêm sản phẩm
     const addSP = async () =>{
         try {
-            console.log('Chay addimg');
-            await addimg();
             console.log('Chay addsp');
             console.log(listimg.value);
             const obj = ref(

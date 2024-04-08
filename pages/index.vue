@@ -76,10 +76,7 @@
             if(i4SP.value)
             {
                 items.value = i4SP.value;
-                console.log(items.value.length);
                 pageMax.value = parseInt(items.value.length / 6) + 1;
-                console.log(pageMax.value);
-                console.log(items.value);
                 if(items.value)
                 {
                     await setlist(items);
