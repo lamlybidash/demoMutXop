@@ -1,7 +1,7 @@
 <template>
     <div v-if="check" @click="testF()" :class="[`flex w-full h-[250px] overflow-hidden hover:bg-gray-200 hover:border-[2px]`, selected ? 'bg-blue-200':'']">
         <div class=" pl-2 pr-3">
-            <NuxtImg class="w-[250px] h-full object-cover"  :src="props.img"></NuxtImg>
+            <img class="w-[250px] h-full object-cover"  :src="props.img">
         </div>
         <div class="w-[70%] grid grid-rows-5">
             <div >

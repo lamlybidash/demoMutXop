@@ -87,9 +87,6 @@
                         <div class="w-[70%] " ref="dropZoneRef">
                             <UInput type="file" accept="image/*" multiple @change="onSelectFile"></UInput>
                         </div>
-                        <UButton @click="addimg()" class="bg-blue-400 hover:bg-blue-600">
-                                Add
-                            </UButton>
                     </div>
 
                     <div class="w-full flex">
@@ -156,18 +153,15 @@
     let selectedFile = null;
     const onSelectFile = async (event) =>
     {
-        console.log(event.target.files);
         const input = event.target.files;
         fileInput.value = input;
-        console.log("fileInput :" );
-        console.log(fileInput.value);
         const list = ref([]);
         listimg.value = list.value;
         for(let index = 0 ; index < fileInput.value.length; index++)
         {
             // const base64 = await convertbase64(fileInput.value[index]);
-            console.log(`https://raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
-            listimg.value.push(`https://raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
+            console.log(`raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
+            listimg.value.push(`raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
             // console.log(base64);
         }
         // console.log("listimg: ");
@@ -197,8 +191,6 @@
     // Thêm sản phẩm
     const addSP = async () =>{
         try {
-            console.log('Chay addsp');
-            console.log(listimg.value);
             const obj = ref(
                 {
                     ten: TenInp.value,
@@ -214,7 +206,6 @@
                     imgurl: listimg.value,
                 }
             )
-            console.log(obj.value);
 
             const {data,error} = await useFetch('/api/sanpham/add',{
                 method: 'POST',
@@ -244,8 +235,6 @@
         if(result)
         {
             try {
-                console.log('Chạy xóa ảnh');
-                console.log('id = ' + _idsp.value);
                 const {data,error} = await useFetch('/api/sanpham/del',{
                     method: 'POST',
                     body:{
@@ -273,10 +262,6 @@
     // Cập nhật sản phẩm
     const updateSP = async () =>{
         try {
-            console.log('Chay addimg');
-            await addimg();
-            console.log('Chay update');
-            console.log(listimg.value);
             const obj = ref(
                 {
                     _id: _idsp.value,
@@ -293,7 +278,6 @@
                     imgurl: listimg.value,
                 }
             )
-            console.log(obj.value);
 
             const {data,error} = await useFetch('/api/sanpham/update',{
                 method: 'POST',
@@ -368,7 +352,6 @@
                     await setInput(items.value[i]);
                     indexSelected.value = i;
                     _idsp.value = value;
-                    console.log('id = ' + _idsp.value);
                     break;
                 }
             }

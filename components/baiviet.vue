@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center m-3 border-[1px] rounded-t-2xl overflow-hidden">
-            <NuxtImg class=" object-cover xl:w-[100%] h-[100%] cursor-pointer " :src="item.srcimg"></NuxtImg>
+            <img class=" object-cover xl:w-[100%] h-[100%] cursor-pointer " :src="item.srcimg">
         <div class="text-xl cursor-pointer ">
             {{ item.title }}
         </div>
