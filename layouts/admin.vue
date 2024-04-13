@@ -1,5 +1,6 @@
 <template>
     <!-- Header -->
+    <NuxtLoadingIndicator color="red" />
     <div class="h-screen">
         <div class="h-[10%]">
             <div class="w-full">

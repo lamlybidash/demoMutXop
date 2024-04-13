@@ -165,8 +165,9 @@
         listimg.value = list.value;
         for(let index = 0 ; index < fileInput.value.length; index++)
         {
-            const base64 = await convertbase64(fileInput.value[index]);
-            listimg.value.push(base64);
+            // const base64 = await convertbase64(fileInput.value[index]);
+            console.log(`https://raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
+            listimg.value.push(`https://raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
             // console.log(base64);
         }
         // console.log("listimg: ");
@@ -174,22 +175,22 @@
     }
 
 
-    const convertbase64 = (img) =>
-    {
-        return new Promise((resolve,reject)=>{
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(img);
-            fileReader.onload = () =>
-            {
-                resolve(fileReader.result);
-            };
+    // const convertbase64 = (img) =>
+    // {
+    //     return new Promise((resolve,reject)=>{
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsDataURL(img);
+    //         fileReader.onload = () =>
+    //         {
+    //             resolve(fileReader.result);
+    //         };
 
-            fileReader.onerror = (error) =>
-            {
-                reject(error);
-            }
-        })
-    }
+    //         fileReader.onerror = (error) =>
+    //         {
+    //             reject(error);
+    //         }
+    //     })
+    // }
 
     // Function Thêm ảnh
 
