@@ -160,8 +160,7 @@
         for(let index = 0 ; index < fileInput.value.length; index++)
         {
             // const base64 = await convertbase64(fileInput.value[index]);
-            console.log(`raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
-            listimg.value.push(`raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
+            listimg.value.push(`https://raw.githubusercontent.com/tunglemutxop/MXThanhNgan/main/` + fileInput.value[index].name);
             // console.log(base64);
         }
         // console.log("listimg: ");
