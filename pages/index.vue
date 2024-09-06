@@ -18,7 +18,7 @@
                     Mút xốp
                 </div>
                 <div class=" border-[1px] px-3 bg-sky-500 cursor-pointer">
-                    Băng keo
+                    Băng dính
                 </div>
                 <div class="border-[1px] px-3 bg-sky-500 cursor-pointer">
                     Tất cả
